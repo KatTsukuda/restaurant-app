@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 
 class SubmitForm extends Component {
+  constructor(){
+    super()
+    this.state = {
+      restaurant: ''
+    }
+  }
+
+  onFormSubmit(event){
+  console.log('form submitted')
+  event.preventDefault()
+  }
+
   render() {
     return (
-      <form id="rest-form">
+      <form onSubmit={event => this.onFormSubmit(event)} id="rest-form">
         <div className="row">
           <div className=" col-xs-6 col-md-4 col-xs-offset-1">
             <label htmlFor="restaurant">Restaurant</label>
