@@ -5,6 +5,12 @@ import Restaurant from './components/Restaurant'
 import $ from 'jquery-ajax';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      restaurants: ['Wood Tavern']
+    }
+  }
 
   componentDidMount() {
     $.ajax({
@@ -23,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
           <Header />
-          <Restaurant />
+          {this.state.restaurants.map((title) => <Restaurant title={ title } />)}
           <Footer />
       </div>
     );
