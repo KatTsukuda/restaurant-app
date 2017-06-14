@@ -4,6 +4,8 @@ body {
   font-family: sans-serif;
 }
 
+/* HEADER */
+
 .header {
   margin-top: 50px;
   text-align: center;
@@ -25,6 +27,8 @@ body {
   font-size: 18px;
 }
 
+/* FOOTER */
+
 footer {
   background-color: #dddbdb;
   height: 40px;
@@ -44,10 +48,12 @@ footer a {
   color: #fff;
 }
 
-a:hover {
+footer a:hover {
   text-decoration: none;
   color: #fff;
 }
+
+/* ROWS */
 
 .restaurant-name{
   font-weight: bold;
@@ -88,6 +94,18 @@ p {
 span {
   color: #dddbdb;
 }
+
+.restaurant-row {
+  border-bottom: 1px solid #666;
+  padding-bottom: 20px;
+}
+
+.restaurant-name:hover {
+  text-decoration: none;
+  color: #666;
+}
+
+/* SUBMIT FORM */
 
 form {
   margin: 20px 0 30px 0 ;

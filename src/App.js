@@ -14,7 +14,8 @@ class App extends Component {
       id: "",
       address: "",
       type: "",
-      rating: ""
+      rating: "",
+      url: ""
     }
   }
 
@@ -35,7 +36,8 @@ class App extends Component {
               id: data.id,
               address: data.location.display_address.map((address) => address + " "),
               type: data.categories[0].title,
-              rating: data.rating
+              rating: data.rating,
+              url: data.url
             })
           }
         })
@@ -52,7 +54,8 @@ class App extends Component {
             id={ this.state.id }
             address={ this.state.address }
             type={ this.state.type }
-            rating={this.state.rating }/>
+            rating={ this.state.rating }
+            url={ this.state.url }/>
           <Footer />
       </div>
     );
