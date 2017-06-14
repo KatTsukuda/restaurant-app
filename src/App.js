@@ -2,17 +2,25 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Restaurant from './components/Restaurant'
+import SubmitForm from './components/SubmitForm'
 import $ from 'jquery-ajax';
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      restaurants: ['Wood Tavern']
+      title: "",
+      image: "",
+      id: "",
+      address: "",
+      type: "",
+      rating: ""
     }
   }
 
   componentDidMount() {
+    let yelp = this;
+
     $.ajax({
           method: 'GET',
           url: "/wood-tavern-oakland",
@@ -21,6 +29,14 @@ class App extends Component {
           },
           success: function(data){
             console.log(data)
+            yelp.setState({
+              title: data.name,
+              image: data.photos[1],
+              id: data.id,
+              address: data.location.display_address.map((address) => address + " "),
+              type: data.categories[0].title,
+              rating: data.rating
+            })
           }
         })
   }
@@ -29,7 +45,14 @@ class App extends Component {
     return (
       <div className="App">
           <Header />
-          {this.state.restaurants.map((title) => <Restaurant title={ title } />)}
+          <SubmitForm />
+          <Restaurant
+            title={ this.state.title }
+            image={ this.state.image}
+            id={ this.state.id }
+            address={ this.state.address }
+            type={ this.state.type }
+            rating={this.state.rating }/>
           <Footer />
       </div>
     );
