@@ -10,7 +10,7 @@ class Restaurant extends Component {
             <img src="#" className="images" />
           </div>
           <div className="col-xs-4">
-            <h2 className="restaurant-name">Restaurant Name</h2>
+            <h2 className="restaurant-name">{this.props.title}</h2>
             <p className="rating">Rating stars out of 5</p>
             <p className="address">Address</p>
             <p className="text-muted"><em>Restaurant Type</em></p>
