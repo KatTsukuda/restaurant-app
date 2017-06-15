@@ -24,10 +24,14 @@ class SubmitForm extends Component {
 
   onFormSubmit(event){
   console.log('form submitted')
-  console.log(this.state.restaurant)
-  console.log(this.state.city);
   event.preventDefault()
+  let restaurant = this.state.restaurant.split(' ').join('-').toLowerCase();
+  let city = this.state.city.split(' ').join('-').toLowerCase();
 
+  let restId = restaurant + "-" + city;
+
+  console.log(restId)
+  return restId
   }
 
   render() {
