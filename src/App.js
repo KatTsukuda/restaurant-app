@@ -19,29 +19,25 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    let yelp = this;
+  // componentDidMount() {
+  //   this.fetchData()
+  // }
 
-    $.ajax({
-          method: 'GET',
-          url: "/wood-tavern-oakland",
-          beforeSend: function(xhr) {
-                  xhr.setRequestHeader("Authorization", "Bearer UKWxH_2pKgsmhYvw3sfPK08BPbQFVB2ZkM4umAhZ47NAS7Z-YNdBY-ggeF8mv4JdrWcwNuk7aAErQEwLZkiHehETJTHRMoawVexgx4DU-SSZWboxyaUxBRciTM0wWXYx");
-          },
-          success: function(data){
-            console.log(data)
-            yelp.setState({
-              title: data.name,
-              image: data.photos[1],
-              id: data.id,
-              address: data.location.display_address.map((address) => address + " "),
-              type: data.categories[0].title,
-              rating: data.rating,
-              url: data.url
-            })
-          }
-        })
-  }
+  // createRest(data) {
+  //   console.log(data)
+  //   let newRest =
+  //
+  //     this.setState({
+  //       title: data.name,
+  //       image: data.photos[1],
+  //       id: data.id,
+  //       address: data.location.display_address.map((address) => address + " "),
+  //       type: data.categories[0].title,
+  //       rating: data.rating,
+  //       url: data.url
+  //     })
+
+  //}
 
   render() {
     return (
