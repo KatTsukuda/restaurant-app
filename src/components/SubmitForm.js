@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery-ajax';
 
 class SubmitForm extends Component {
   constructor(props) {
@@ -31,7 +32,18 @@ class SubmitForm extends Component {
   let restId = restaurant + "-" + city;
 
   console.log(restId)
-  return restId
+
+  $.ajax({
+        method: 'GET',
+        url: "/" + restId,
+        beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", "Bearer UKWxH_2pKgsmhYvw3sfPK08BPbQFVB2ZkM4umAhZ47NAS7Z-YNdBY-ggeF8mv4JdrWcwNuk7aAErQEwLZkiHehETJTHRMoawVexgx4DU-SSZWboxyaUxBRciTM0wWXYx");
+        },
+        success: function(data){
+          console.log(data)
+        }
+      })
+      
   }
 
   render() {
